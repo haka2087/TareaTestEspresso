@@ -285,9 +285,131 @@ public class PruebaTrianguloEquilatero {
         textView.check(matches(withText("Es un Triangulo Escaleno")));
     }
 
+    @Test
+    public void pruebaTrianguloIsosceles1() {
+        ViewInteraction appCompatEditText = onView(
+                allOf(withId(R.id.Id_ladoA),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                2),
+                        isDisplayed()));
+        appCompatEditText.perform(click());
 
+        ViewInteraction appCompatEditText2 = onView(
+                allOf(withId(R.id.Id_ladoA),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                2),
+                        isDisplayed()));
+        appCompatEditText2.perform(replaceText("11"), closeSoftKeyboard());
 
+        ViewInteraction appCompatEditText3 = onView(
+                allOf(withId(R.id.Id_LadoC),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                6),
+                        isDisplayed()));
+        appCompatEditText3.perform(replaceText("11"), closeSoftKeyboard());
 
+        ViewInteraction appCompatEditText4 = onView(
+                allOf(withId(R.id.Id_LadoB),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                4),
+                        isDisplayed()));
+        appCompatEditText4.perform(replaceText("9"), closeSoftKeyboard());
+
+        ViewInteraction appCompatButton = onView(
+                allOf(withId(R.id.bt_consultar), withText("Consultar"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                7),
+                        isDisplayed()));
+        appCompatButton.perform(click());
+
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.IdTriangulo), withText("El Triangulo es Isoceles"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                8),
+                        isDisplayed()));
+        textView.check(matches(withText("El Triangulo es Isoceles")));
+    }
+
+    @Test
+    public void pruebaTrianguloIsosceles2() {
+        ViewInteraction appCompatEditText = onView(
+                allOf(withId(R.id.Id_ladoA),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                2),
+                        isDisplayed()));
+        appCompatEditText.perform(click());
+
+        ViewInteraction appCompatEditText2 = onView(
+                allOf(withId(R.id.Id_ladoA),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                2),
+                        isDisplayed()));
+        appCompatEditText2.perform(replaceText("6"), closeSoftKeyboard());
+
+        ViewInteraction appCompatEditText3 = onView(
+                allOf(withId(R.id.Id_LadoC),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                6),
+                        isDisplayed()));
+        appCompatEditText3.perform(replaceText("5"), closeSoftKeyboard());
+
+        ViewInteraction appCompatEditText4 = onView(
+                allOf(withId(R.id.Id_LadoB),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                4),
+                        isDisplayed()));
+        appCompatEditText4.perform(replaceText("6"), closeSoftKeyboard());
+
+        ViewInteraction appCompatButton = onView(
+                allOf(withId(R.id.bt_consultar), withText("Consultar"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                7),
+                        isDisplayed()));
+        appCompatButton.perform(click());
+
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.IdTriangulo), withText("El Triangulo es Isoceles"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                8),
+                        isDisplayed()));
+        textView.check(matches(withText("El Triangulo es Isoceles")));
+    }
 
 
     private static Matcher<View> childAtPosition(
