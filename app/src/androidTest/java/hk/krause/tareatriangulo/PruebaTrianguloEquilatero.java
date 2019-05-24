@@ -1,6 +1,5 @@
 package hk.krause.tareatriangulo;
 
-
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
@@ -29,7 +28,6 @@ import static org.hamcrest.Matchers.allOf;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class PruebaTrianguloEquilatero {
-
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
@@ -242,7 +240,7 @@ public class PruebaTrianguloEquilatero {
                                         0),
                                 2),
                         isDisplayed()));
-        appCompatEditText2.perform(replaceText("6"), closeSoftKeyboard());
+        appCompatEditText2.perform(replaceText("5"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText3 = onView(
                 allOf(withId(R.id.Id_LadoC),
@@ -252,7 +250,7 @@ public class PruebaTrianguloEquilatero {
                                         0),
                                 6),
                         isDisplayed()));
-        appCompatEditText3.perform(replaceText("8"), closeSoftKeyboard());
+        appCompatEditText3.perform(replaceText("9"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText4 = onView(
                 allOf(withId(R.id.Id_LadoB),
@@ -262,7 +260,7 @@ public class PruebaTrianguloEquilatero {
                                         0),
                                 4),
                         isDisplayed()));
-        appCompatEditText4.perform(replaceText("10"), closeSoftKeyboard());
+        appCompatEditText4.perform(replaceText("12"), closeSoftKeyboard());
 
         ViewInteraction appCompatButton = onView(
                 allOf(withId(R.id.bt_consultar), withText("Consultar"),
@@ -411,6 +409,68 @@ public class PruebaTrianguloEquilatero {
         textView.check(matches(withText("El Triangulo es Isoceles")));
     }
 
+    @Test
+    public void pruebaTrianguloIncorrecto() {
+        ViewInteraction appCompatEditText = onView(
+                allOf(withId(R.id.Id_ladoA),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                2),
+                        isDisplayed()));
+        appCompatEditText.perform(click());
+
+        ViewInteraction appCompatEditText2 = onView(
+                allOf(withId(R.id.Id_ladoA),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                2),
+                        isDisplayed()));
+        appCompatEditText2.perform(replaceText("4"), closeSoftKeyboard());
+
+        ViewInteraction appCompatEditText3 = onView(
+                allOf(withId(R.id.Id_LadoC),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                6),
+                        isDisplayed()));
+        appCompatEditText3.perform(replaceText("2"), closeSoftKeyboard());
+
+        ViewInteraction appCompatEditText4 = onView(
+                allOf(withId(R.id.Id_LadoB),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                4),
+                        isDisplayed()));
+        appCompatEditText4.perform(replaceText("8"), closeSoftKeyboard());
+
+        ViewInteraction appCompatButton = onView(
+                allOf(withId(R.id.bt_consultar), withText("Consultar"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                7),
+                        isDisplayed()));
+        appCompatButton.perform(click());
+
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.IdTriangulo), withText("Los Nros Ingresados No pertenecen a un Triangulo"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                8),
+                        isDisplayed()));
+        textView.check(matches(withText("Los Nros Ingresados No pertenecen a un Triangulo")));
+    }
 
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {

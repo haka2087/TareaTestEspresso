@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
                         resultado.setText("El Triangulo es Isoceles");
                     }
                 }
-
             }
         });
     }
