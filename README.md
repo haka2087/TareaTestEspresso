@@ -6,4 +6,4 @@
 - Se creo la aplicación que permite identificar que tipo de Triangulo es.
 - Terminada la Aplicación se generaron los Test con Framework Espresso
 - Se realizaron 2 test para cada Tipo de Triangulo y uno que arrojara que no es un Triangulo
-! [Alt Texto] (Codigo.png)
+   ! [Alt Texto] (Codigo.png)
